@@ -36,12 +36,7 @@
 
                     console.log(data);
                     $scope.weathers = data.hourly_forecast.splice(0,5);
-                   // temp = data.current_observation.temp_f;
-                   // icon = data.current_observation.icon_url;
-                    //weather = data.current_observation.weather;
-                   // console.log(temp);
-                   // $scope.currentweather = "Current temperature in Kansas City is " + temp + " F and " + weather;
-                  //  $scope.currentIcon = icon;
+                
                 })
             }
 
