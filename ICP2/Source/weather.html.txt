@@ -16,11 +16,11 @@
     <button id="btn" ng-click="getWeather()"> Show Weather </button>
     <br/>
     <br/>
-    <table>
+    <table border="1" style="border: 1px solid;border-collapse: collapse">
     <tr align="center" ng-repeat="weather in weathers">
-      <td>  {{weather.FCTTIME.hour}} </td>
-        <td>{{weather.FCTTime.min}}  </td>
-        <td>{{weather.temp.english}} </td>
+      <td>  {{weather.FCTTIME.civil}} </td>
+        <td>{{weather.feelslike.english}}  </td>
+        <td>{{weather.condition}} </td>
     </tr>
     </table>
 </div>
@@ -36,7 +36,7 @@
 
                     console.log(data);
                     $scope.weathers = data.hourly_forecast.splice(0,5);
-                
+                   
                 })
             }
 
