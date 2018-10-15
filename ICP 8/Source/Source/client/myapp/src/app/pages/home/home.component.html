@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Angular Demo</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+<style type="text/css">
+
+</style>
+<h1 align="center">Weather Forecast</h1>
+<!--<script>
+  var app = angular.module('application');
+  app.controller('controller', function($scope,$http) {
+    $scope.getWeather = function(){
+      console.log('hello');
+      var query='http://127.0.0.1:3000/anvesh/nlp'
+      $http.get(query).then(function(data) {
+        console.log(data);
+        /*$scope.texts = data.data.tokens;
+        console.log(texts);*/
+      });
+    }
+  });
+</script>-->
+
+<div>
+
+  StateId: <input type="text" ng-model="stateId"><br>
+  <br>
+  <button id="submit" ng-click="getWeather()"> Show Weather</button><br>
+  <!--<table border="6" align="center" width="50%" cellpadding="4",cellspacing="3">
+    <tr>
+      <th>Content</th>
+      <th>Parts of Speech</th>
+      <th>Gender</th>
+      <th>Number</th>
+    </tr>
+    <tr align="center" ng-repeat="data in texts">
+      <td>{{data.text.content}}</td>
+      <td>{{data.partOfSpeech.tag}}</td>
+      <td>{{data.partOfSpeech.gender}}</td>
+      <td>{{data.partOfSpeech.number}}</td>
+    </tr>
+  </table>-->
+  <br>
+</div>
+</body>
+</html>

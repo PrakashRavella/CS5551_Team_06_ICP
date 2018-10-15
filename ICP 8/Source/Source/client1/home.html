@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Angular Demo</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+</head>
+<body>
+<style type="text/css">
+    body{
+        background-size: cover;
+        background-attachment: fixed;
+        background: cornsilk ;
+    }
+</style>
+<h1 align="center">Natural Language API </h1>
+<script>
+    var app = angular.module('application', []);
+    app.controller('controller', function($scope,$http) {
+        $scope.getWeather = function(){
+            console.log('check');
+            var query='http://127.0.0.1:3000/prakash/nlp?Text='+$scope.stateId
+            $http.post(query,{
+                headers: {
+                    'Content-Type' : 'application/json',
+                    'Access-Control-Allow-Credentials' : true,
+                    'Access-Control-Allow-Origin':'*',
+                    'Access-Control-Allow-Methods':'POST',
+                    'Access-Control-Allow-Headers':'Content-Type',
+                }
+            }).then(function(data) {
+                console.log(data);
+                $scope.weathers = data.data.tokens;
+            });
+        }
+    });
+</script>
+
+<div ng-app="application" ng-controller="controller">
+
+    Enter the Text : <input type="text" ng-model="stateId"><br>
+    <br>
+    <button id="submit" ng-click="getWeather()"> Get Powerful Text Analysis </button><br>
+    <table border="3" align="center" width="50%" cellpadding="3",cellspacing="3">
+        <tr>
+            <th>Content</th>
+            <th>Parts of Speech</th>
+            <th>Gender</th>
+            <th>Number</th>
+        </tr>
+        <tr align="center" ng-repeat="data in weathers">
+            <td>{{data.text.content}}</td>
+            <td>{{data.partOfSpeech.tag}}</td>
+            <td>{{data.partOfSpeech.gender}}</td>
+            <td>{{data.partOfSpeech.number}}</td>
+        </tr>
+    </table>
+    <br>
+</div>
+</body>
+</html>
